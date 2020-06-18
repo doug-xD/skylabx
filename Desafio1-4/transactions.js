@@ -1,8 +1,9 @@
 const user = {
     name: "Mariana",
     transactions: [],
-    balance: 0
-  };
+    balance: 0,
+    bank: ""
+  }
 
   const transactionsModel = [
     {type: 'credit', value: 50 }, 
@@ -10,7 +11,6 @@ const user = {
     { type: 'debit',  value: 80 }, 
     { type: 'debit',  value: 30 }
   ]
-
 
 function createTransaction(transaction){
     user.transactions.push(transaction)
