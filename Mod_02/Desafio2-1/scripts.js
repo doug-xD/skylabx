@@ -1,15 +1,15 @@
-const modalOverlay = document.querySelector('.modal-overlay')
-const cards = document.querySelectorAll('.card')
+const modalOverlay = document.querySelector('.modal_overlay')
+const courses = document.querySelectorAll('.course')
 
-for (let card of cards) {
-    card.addEventListener("click", function(){
-        const videoID = card.getAttribute("id")
+for (let course of courses) {
+    course.addEventListener("click", function(){
+        const course_id = course.getAttribute("id")
         modalOverlay.classList.add('active')
-        modalOverlay.querySelector("iframe").src = `https://www.youtube.com/embed/${videoID}`
+        modalOverlay.querySelector("iframe").src = `http://www.globo.com`
     })
 }
 
-document.querySelector(".close-modal").addEventListener("click", function(){
+document.querySelector(".close_modal").addEventListener("click", function(){
     modalOverlay.classList.remove("active")
     modalOverlay.querySelector("iframe").src = ""
 })
