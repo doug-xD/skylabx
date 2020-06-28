@@ -5,7 +5,10 @@
     --color-rocket: #7159c1;
 }
 body{    
-    background-image: linear-gradient(to right top, #6e50d2, #6448d4, #5941d6, #4b39d9, #3931db, #3931db, #3931db, #3931db, #4b39d9, #5941d6, #6448d4, #6e50d2);
+    background: #0f0c29;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
     font-family: 'Roboto', sans-serif;
     color: white;
     min-width: 1426px;
@@ -252,12 +255,12 @@ iframe{
     display: flex;
     flex-direction: column;
     background: url("./img/FeaturedCardBg.40a7d53e.png") 0% 0% / cover;
-    padding: 20px;
     border-radius: 20px;
     -webkit-box-align: center;
 	align-items: center;
     flex: 1 1 0%;
     padding: 50px 0;
+    cursor: pointer;
 }
 #courses .course a{
     text-decoration: none;
@@ -298,22 +301,22 @@ iframe{
 }
 
 #starter a:last-child, 
-#lauchbase a:last-child,
+#launchbase a:last-child,
 #gostack a:last-child {
     color: rgb(34, 34, 34);
 }
 
-#lauchbase a span{ 
+#launchbase a span{ 
     border-color: rgb(253, 149, 31);
     color:  rgb(253, 149, 31);
 }
 
-#lauchbase a strong{
+#launchbase a strong{
     font-weight: bold;
     color:  rgb(253, 149, 31);
 }
 
-#lauchbase:hover{
+#launchbase:hover{
     transform: translateY(-7px);
     transition: all 0.2s ease 0.2s;
     border: 2px solid rgb(253, 149, 31);
@@ -333,6 +336,7 @@ iframe{
     transform: translateY(-3px);
     transition: all 0.2s ease-in-out 0.2s;
     border: 2px solid rgb(4, 211, 97);
+    margin: -4px;
 }
 
 .budget_course{
@@ -365,27 +369,40 @@ iframe{
     top: 0;
     opacity: 0;
     visibility: hidden;
-
 }
 .modal{
-    background-color: white;
-    width: 90%;
-    height: 90%;
+    background-color: rgba(0, 0, 0, 0.9);
     margin: 5vh auto;
     position: relative;
-   
 }
 
-.modal .close_modal{
-    color: black;
+.modal .close_modal,
+.modal .max_modal{
+    color: white;
     position: absolute;
-    right: 8px;
-    top: 8px;
+    right: 10px;
+    top: 10px;
     cursor: pointer;
 }
 
+.modal .close_modal:hover,
+.modal .max_modal:hover{
+    color: red;
+}
+
+.modal .max_modal{
+    right: 40px;
+}
+
 /* === MODAL active === */
-.modal_overlay .active{
+.modal_overlay.active{
     opacity: 1;
     visibility: visible;
+    transition: .3s ease-in-out;
+}
+
+.modal_overlay.maximized{
+    width: 90%;
+    height: 90%;
+    transition: .3s ease-in-out;
 }
